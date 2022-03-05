@@ -1,0 +1,17 @@
+.users__inner {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 50px 20px;
+}
+
+.constainer {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.users__pagination {
+  display: flex;
+  gap: 20px;
+}

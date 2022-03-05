@@ -1,0 +1,21 @@
+.sorted__wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.sorted__input {
+  margin-left: 10px;
+}
+
+.sorted__button {
+  cursor: pointer;
+  border-radius: 10px;
+  border: 0;
+  padding: 5px 10px;
+  transition: all 0.4s linear;
+  margin-left: 10px;
+  &:hover {
+    background-color: #a7a7a7;
+  }
+}

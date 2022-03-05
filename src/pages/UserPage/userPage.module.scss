@@ -1,0 +1,31 @@
+.user__wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 24vh;
+  border: 1px solid red;
+}
+
+.users__item_inner {
+  display: flex;
+  padding: 8px;
+}
+
+.users__item_img {
+  width: 100px;
+  height: 100px;
+}
+
+.user__button {
+  cursor: pointer;
+  border-radius: 10px;
+  border: 0;
+  padding: 5px 10px;
+  transition: all 0.4s linear;
+  &:hover {
+    background-color: #a7a7a7;
+  }
+  margin: 10px 0 0 10px;
+}
