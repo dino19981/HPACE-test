@@ -23,3 +23,12 @@ export enum sortedTypes {
   top = 'top',
   bottom = 'bottom'
 }
+
+export interface IuserAction {
+  type: string,
+  payload: Iuser
+}
+
+export enum userTypes {
+  UPLOAD_USER = 'UPLOAD_USER',
+}

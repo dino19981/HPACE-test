@@ -3,7 +3,6 @@ import styles from './userPage.module.scss';
 import User from '../../components/User/User';
 import { useTypedSelector } from '../../hooks/useTypeSelector';
 import { useDispatch } from 'react-redux';
-import { userTypes } from '../../store/reducers/user';
 import { Iproduct } from '../../types/types';
 import { deleteProduct, getProducts } from '../../API/API';
 import Preloader from '../../components/Preloader/Preloader';

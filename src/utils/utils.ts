@@ -6,7 +6,6 @@ export function getUsersPerPage(currentPage: number, pagination: number, users: 
   }
   const start = (currentPage - 1) * pagination;
   const resultUsers = users.slice(start, start + pagination);
-  console.log(resultUsers);
   return resultUsers;
 }
 
@@ -22,5 +21,4 @@ export function getSortedUsers(selectedType: string, users: Iuser[]): Iuser[] {
   } else {
     return users;
   }
-
 }

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteUser } from '../../API/API';
-import { userTypes } from '../../store/reducers/user';
-import { Iuser } from '../../types/types';
+import { Iuser, userTypes } from '../../types/types';
 import Modal from '../Modal/Modal';
 import styles from './user.module.scss';
 

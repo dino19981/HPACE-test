@@ -1,9 +1,5 @@
 import React from 'react';
-import { Iproduct, Iuser, IuserState } from '../../types/types';
-
-export enum userTypes {
-  UPLOAD_USER = 'UPLOAD_USER',
-}
+import { IuserAction, IuserState, userTypes } from '../../types/types';
 
 const initialProduct = {
   user: {
@@ -18,12 +14,6 @@ const initialProduct = {
   }
 
 }
-
-export interface IuserAction {
-  type: string,
-  payload: Iuser
-}
-
 
 
 function userReducer(state: IuserState = initialProduct, action: IuserAction): IuserState {
