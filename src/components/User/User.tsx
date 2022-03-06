@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteUser } from '../../API/API';
@@ -6,12 +6,12 @@ import { Iuser, userTypes } from '../../types/types';
 import Modal from '../Modal/Modal';
 import styles from './user.module.scss';
 
-type User = {
+type TUser = {
   data: Iuser;
   setUsers: (state: Iuser[] | ((state: Iuser[]) => Iuser[])) => void;
 };
 
-export default function User({ data, setUsers }: User) {
+function User({ data, setUsers }: TUser) {
   const { name, age, avatar } = data;
   const [modalActive, setModalActive] = useState(false);
   const dispath = useDispatch();
@@ -62,3 +62,5 @@ export default function User({ data, setUsers }: User) {
     </div>
   );
 }
+
+export default memo(User);
