@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styles from './userPage.module.scss';
 import User from '../../components/User/User';
-import { useTypedSelector } from '../../hooks/useTypeSelector';
+import { useTypedSelector } from '../../hooks/creatorsHooks/useTypeSelector';
 import { useDispatch } from 'react-redux';
 import { Iproduct } from '../../types/types';
 import { deleteProduct, getProducts } from '../../API/API';
 import Preloader from '../../components/Preloader/Preloader';
 import { useNavigate } from 'react-router-dom';
+import { useProducts } from '../../hooks/customHooks/useProducts';
 
 export default function UserPage() {
   const { user } = useTypedSelector((state) => state.user);
-  const [isLoading, setIsLoading] = useState(false);
-  const [product, setProduct] = useState<Iproduct>();
-  const [showProduct, setShowProduct] = useState(true);
+  const [product, setProduct, showProduct, setShowProduct, isLoading] = useProducts(user.id);
   const navigate = useNavigate();
 
   function handleDeleteProduct() {
@@ -24,18 +23,6 @@ export default function UserPage() {
   function goMainMenu() {
     navigate('/');
   }
-
-  useEffect(() => {
-    (async () => {
-      const product = await getProducts(user.id);
-      if (product !== 'Not found') {
-        setProduct(product);
-      } else {
-        setShowProduct(false);
-      }
-      setIsLoading(true);
-    })();
-  }, []);
 
   if (!isLoading) {
     return <Preloader />;

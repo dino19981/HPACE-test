@@ -32,3 +32,5 @@ export interface IuserAction {
 export enum userTypes {
   UPLOAD_USER = 'UPLOAD_USER',
 }
+
+export type IuseUserList = [Iuser[], (state: Iuser[] | ((state: Iuser[]) => Iuser[])) => void, boolean]

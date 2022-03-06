@@ -3,34 +3,17 @@ import 'antd/dist/antd.css';
 import { Pagination } from 'antd';
 import styles from './userList.module.scss';
 import User from '../../components/User/User';
-import { getUsers } from '../../API/API';
 import Preloader from '../../components/Preloader/Preloader';
-import { getSortedUsers, getUsersPerPage } from '../../utils/utils';
-import { Iuser, sortedTypes } from '../../types/types';
+import { getUsersPerPage } from '../../utils/utils';
 import SortedUsers from './SortedUsers/SortedUsers';
+import { useUserList } from '../../hooks/customHooks/useUserList';
+import { useSortedUserList } from '../../hooks/customHooks/useSortedUserList';
 
 export default function UserList() {
-  const [users, setUsers] = useState<Iuser[]>([]);
+  const [users, setUsers, isLoaded] = useUserList();
   const [pagination, setPagination] = useState(100);
   const [currentPage, setCurrentPage] = useState(1);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [sortedType, setSortedType] = useState('');
-
-  useEffect(() => {
-    (async () => {
-      const users = await getUsers();
-      setUsers(users);
-      setIsLoaded(true);
-    })();
-  }, []);
-
-  useEffect(() => {
-    if (!users.length) {
-      return;
-    }
-    const sortedUsers = getSortedUsers(sortedType, users);
-    setUsers(sortedUsers);
-  }, [sortedType]);
+  const setSortedType = useSortedUserList(users, setUsers);
 
   if (!isLoaded) {
     return <Preloader />;
